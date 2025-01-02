@@ -1,0 +1,15 @@
+<h1>seller's data</h1>
+{% if data %}
+{% for k in data %}
+<form method="post" action="../edit_seller1/">
+    {% csrf_token %}
+    <p>Name<input type="text" name="T1" value="{{k.name}}"/></p>
+    <p>Address<input type="text" name="T2" value="{{k.address}}"></p>
+    <p>Contact<input type="text" name="T3" value="{{k.contact}}"></p>
+    <p>Email<input type="text" name="T4" value="{{k.email}}"></p>
+    <p>GST No.<input type="text" name="T5" value="{{k.gst_number}}"></p>
+    <p>PINCODE<input type="text" name="T6" value="{{k.pincode}}"></p>
+    <p><input type="submit" name="B1" value="Save changes"></p>
+</form>
+{% endfor %}
+{% endif %}

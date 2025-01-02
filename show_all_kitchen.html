@@ -1,0 +1,24 @@
+<h1>Product Data</h1>
+<h2> Kitchen </h2>
+{% if data1 %}
+{% for k in data1 %}
+<div style="float:left; border :2px solid #000; width:20%; margin-left:10px;">
+    <p align="center"><img src="../media/{{k.image_url}}" width="110" height="110"/></p>
+    <p align="center">
+        Product_id : {{k.product_id}}<br/>
+        Name : {{k.name}}<br/>
+        Category : {{k.Category}}<br/>
+        Price : {{k.price}}<br/>
+        Inventory : {{k.inventory_quantity}}<br/>
+        Description : {{k.Description}}<br/>
+    </p>
+     <form method="post" action="../add_to_cart/">
+        {% csrf_token %}
+        <input type="hidden" name="H1" value="{{k.product_id}}"/>
+        <input type="hidden" name="H2" value="{{k.price}}"/>
+        <p align="center"><input type="submit" name="B1" value="Add Cart"></p>
+
+    </form>
+</div>
+{% endfor %}
+{% endif %}

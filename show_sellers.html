@@ -1,0 +1,44 @@
+<h1>Seller's Data</h1>
+{% if key1 %}
+<table border="1" width="100" cellspacing="0">
+
+        <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Gst Number</th>
+                <th>PINCODE</th>
+                <th>&nbsp;</th>
+
+        </tr>
+        {% for k in key1 %}
+        <tr>
+                <td>{{k.name}}</td>
+                <td>{{k.address}}</td>
+                <td>{{k.contact}}</td>
+                <td>{{k.email}}</td>
+                <td>{{k.gst_number}}</td>
+                <td>{{k.pincode}}</td>
+                <td>
+                        <form method="post" action="../edit_seller/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p><input type="hidden" name="H1" value="{{k.email}}"/>
+                                <p><input type="submit" name="B1" value="Edit"></p>
+                        </form>
+                        <form method="post" action="../delete_seller/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p><input type="hidden" name="H1" value="{{k.email}}"/>
+                                <p><input type="submit" name="B1" value="Delete"></p>
+                        </form>
+                </td>
+        </tr>
+
+
+{% endfor %}
+</table>
+<hr/>
+{% endif %}
+
+
+

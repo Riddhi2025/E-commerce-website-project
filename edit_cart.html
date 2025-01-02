@@ -1,0 +1,13 @@
+<h1>Product's data</h1>
+{% if data %}
+{% for k in data %}
+<form method="post" action="../edit_cart1/">
+    {% csrf_token %}
+    <p>Cart_id<input type="text" name="T1" value="{{k.cart_id}}"></p>
+    <p>Total Price<input type="text" name="T2" value="{{k.total_price}}"/></p>
+    <p>Quantity<input type="text" name="T3" value="{{k.quantity}}"></p>
+
+    <input type="submit" name="B1" value="Save changes">
+</form>
+{% endfor %}
+{% endif %}

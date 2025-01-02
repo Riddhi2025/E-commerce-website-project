@@ -1,0 +1,14 @@
+<h1>Product Details</h1>
+{% if data %}
+{% for k in data %}
+<form method="post" action="../delete_cart1/">
+    {%csrf_token%}
+    <p>Cart Id:{{k.cart_id}}</p>
+    <p>Total Price:{{k.total_price}}</p>
+    <p>Quantity:{{k.quantity}}</p>
+    <input type="hidden" name="cart_id" value="{{k.cart_id}}"/>
+    <input type="submit" name="B1" value="Delete"/>
+</form>
+{% endfor %}
+{% endif %}
+

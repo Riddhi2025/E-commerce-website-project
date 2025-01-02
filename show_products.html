@@ -1,0 +1,43 @@
+<h1>Product's Data</h1>
+{% if key1 %}
+<table border="1">
+        <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Inventory Quantity</th>
+                <th>Description</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+        </tr>
+        {% for k in key1 %}
+        <tr>
+                <td>{{k.name}}</td>
+                <td>{{k.Category}}</td>
+                <td>{{k.price}}</td>
+                <td>{{k.inventory_quantity}}</td>
+                <td>{{k.Description}}</td>
+                <td><img src="../media/{{k.image_url}}" width="100" height="100"></td>
+
+                <td>
+                        <form method="post" action="../edit_product/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p><input type="hidden" name="H1" value="{{k.product_id}}"/>
+                                <p><input type="submit" name="B1" value="Edit"></p>
+                        </form>
+                        <form method="post" action="../delete_product/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p><input type="hidden" name="H1" value="{{k.product_id}}"/>
+                                <p><input type="submit" name="B1" value="Delete"></p>
+                        </form>
+
+                </td>
+        </tr>
+        {% endfor %}
+</table>
+
+{% endif %}
+
+
+
+

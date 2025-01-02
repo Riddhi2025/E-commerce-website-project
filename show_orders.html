@@ -1,0 +1,12 @@
+<h1>Order Summery</h1>
+{% if key1 %}
+{% for k in key1 %}
+        cart_id :{{k.cart_id}}<br/>
+        Order Id: {{k.order_id}}<br/>
+        Email: {{k.email}}<br/>
+        Quantity : {{k.quantity}}<br/>
+        Total Amount : {{k.total_price}}<br/>
+
+<hr/>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+<form method="POST" action="../adminreg/">
+    {% csrf_token %}
+    <p>Name<input type="text" name="T1"></p>
+    <p>Address<input type="text" name="T2"></p>
+    <p>Contact<input type="text" name="T3"></p>
+    <p>Email<input type="text" name="T4"></p>
+    <p>Password<input type="text" name="T5"></p>
+    <p>Confirm password<input type="text" name="T6"></p>
+    <p><input type="submit" name="B1" value="Register"></p>
+</form>
+{% if data %}
+    {{ data }}
+{% endif %}
+</body>
+</html>

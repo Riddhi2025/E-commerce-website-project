@@ -1,0 +1,32 @@
+<h1>Cart Details</h1>
+{% if key1 %}
+{% for k in key1 %}
+        Cart Id: {{k.cart_id}}<br/>
+        Email: {{k.email}}<br/>
+        Product Id: {{k.product_id}}<br/>
+        Price : {{k.total_price}}<br/>
+        Quantity : {{k.quantity}}<br/>
+        <form method="post" action="../edit_cart/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p><input type="hidden" name="H1" value="{{k.cart_id}}"/>
+                <p><input type="submit" name="B1" value="Edit"></p>
+        </form>
+        <form method="post" action="../delete_cart/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p><input type="hidden" name="H1" value="{{k.cart_id}}"/>
+                <p><input type="submit" name="B1" value="Delete"></p>
+        </form>
+        <form method="post" action="../your_orders/">
+                {% csrf_token %}
+                <p><input type="hidden" name="H1" value="{{k.product_id}}"></p>
+                <p><input type="hidden" name="H2" value="{{k.cart_id}}"></p>
+                <p><input type="hidden" name="H3" value="{{k.total_price}}"></p>
+                <p><input type="hidden" name="H4" value="{{k.quantity}}"></p>
+                <p><input type="submit" name="B1" value="Place order"></p>
+        </form>
+
+
+
+<hr/>
+{% endfor %}
+{% endif %}

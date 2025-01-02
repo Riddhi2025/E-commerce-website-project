@@ -1,0 +1,24 @@
+<h1>Product Registration</h1>
+<form method="post" action="../product_reg/" enctype="multipart/form-data">
+    {% csrf_token %}
+  <p>Upload photo:<input type="file" name="T1"></p>
+    <p>Name:<input type="text" name="T2"></p>
+    <p>Category:
+        <select name="T3">
+            <option value="Electronics">Electronics</option>
+            <option value="Beauty">Beauty</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Books and Toys">Books & Toys</option>
+            <option value="Kitchen">Kitchen</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Pharmacy">Pharmacy</option>
+        </select>
+    </p>
+    <p>Price:<input type="text" name="T4"></p>
+    <p>Inventory Quantity:<input type="text" name="T5"></p>
+    <p>Product Description:<input type="text" name="T6"></p>
+    <p><input type="submit" name="B1" value="Register"></p>
+</form>
+{% if data %}
+    {{ data }}
+{% endif %}

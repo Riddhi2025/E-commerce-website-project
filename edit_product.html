@@ -1,0 +1,16 @@
+<h1>Product's data</h1>
+{% if data %}
+{% for k in data %}
+<form method="post" action="../edit_product1/">
+    {% csrf_token %}
+    <p>Product_id<input type="text" name="T0" value="{{k.product_id}}"></p>
+    <p>Name<input type="text" name="T1" value="{{k.name}}"/></p>
+    <p>Category<input type="text" name="T2" value="{{k.Category}}"></p>
+    <p>Price<input type="text" name="T3" value="{{k.price}}"></p>
+    <p>Inventory Quantity<input type="text" name="T4" value="{{k.inventory_quantity}}"></p>
+    <p>Description<input type="text" name="T5" value="{{k.Description}}"></p>
+
+    <input type="submit" name="B1" value="Save changes">
+</form>
+{% endfor %}
+{% endif %}

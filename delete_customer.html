@@ -1,0 +1,17 @@
+<h1>Customer Details</h1>
+{% if data %}
+{% for k in data %}
+<form method="post" action="../delete_customer1/">
+    {%csrf_token%}
+    <p>Name:{{k.name}}</p>
+    <p>Address:{{k.address}}</p>
+    <p>Contact:{{k.contact}}</p>
+    <p>Email:{{k.email}}</p>
+    <p>City:{{k.city}}</p>
+    <p>State:{{k.state}}</p>
+    <p>Pincode:{{k.pincode}}</p>
+    <input type="hidden" name="email" value="{{k.email}}"/>
+    <input type="submit" name="B1" value="Delete"/>
+</form>
+{% endfor %}
+{% endif %}
